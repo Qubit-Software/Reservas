@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'kollektif';
+    src: url('../assets/fonts/Kollektif.ttf');
+}
+
+@font-face {
+    font-family: 'kollektif-Italic';
+    src: url('../assets/fonts/Kollektif-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'kollektif-bold';
+    src: url('../assets/fonts/Kollektif-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'kollektif-BoldItalic';
+    src: url('../assets/fonts/Kollektif-BoldItalic.ttf');
+}
+
+body {
+    font-family: "kollektif";
+
+}
+.subMenuIcons{
+    opacity: 0.5;
+    height: auto;
+    width: 20%;
+}
+.borders {
+    border-left: 1px rgb(221, 214, 214) solid;
+    border-right: 1px rgb(221, 214, 214) solid;
+}
+#menuResponsive{
+    border-top: 1px solid  rgb(192, 188, 188);
+}
+.arrow {
+    display: inline-block;
+    height: auto;
+    width: 2%;
+}
+#logoSubMenu{
+    height: auto;
+    width:40%;
+}
+#headText{
+    padding-left: 0px;
+    padding-left: 0px;
+}
+#columnsMenu{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#logoContainer{
+   
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#logo {
+    max-width: 60%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 15%;
+}
+@media (max-width: 768px) {
+    #logo {
+        max-width: 100%;
+        margin-left: 30px;
+
+    }
+}
+@media (max-width: 450px) {
+    #logo {
+        max-width: 100%;
+        margin-left: 30px;
+
+    }
+}
+
+@media (max-width: 767px) {
+
+    .lateral {
+        display: none;
+    }
+}
+
+.config {
+    width: 180px;
+}
+
+.mainHead {
+    margin-top: 3%;
+}
+
+#year {
+    font-size: 15px;
+    color: rgb(180, 177, 177);
+}
+
+#ete {
+    text-align: center;
+    border-top-width: 0px;
+    padding-top: 0px;
+}
+
+#links {
+    text-align: justify;
+    list-style: none;
+    padding: 0px;
+}
+#links2 {
+    text-align: justify;
+    padding: 0px;
+}
+#links2 li::before{
+    color: blue;
+}
+#icon {
+    height: auto;
+    width: 12%;
+    opacity: 0.5;
+}
+
+#config {
+    height: auto;
+    width: 15%;
+    opacity: 0.5;
+    margin: auto;
+}
+
+#icon2 {
+    height: auto;
+    width: 12%;
+    opacity: 0.5;
+}
+#icon3 {
+    height: auto;
+    width: 18%;
+    opacity: 0.5;
+    
+}
+#configButton{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#sectionName1{
+    font-family: "kollektif-bold";
+}
+.lateral{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.lateral li {
+    font-family: "kollektif-bold";
+    opacity: 0.8;
+    font-size: 1.3vw;
+}
+
+#topRightIcons {
+    margin-top: 15%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+
+@media (min-width: 768px) {
+    #menuResponsive{
+        display: none;
+    }
+}
+
+.calendar-day {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    height: 80px;
+}
+
+.calendar-table {
+    margin: 0 auto;
+    width: 700px;
+}
+
+.selected {
+    background-color: #eee;
+}
+
+.outside .date {
+    color: #ccc;
+}
+
+.timetitle {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.event {
+    border-top: 1px solid #b2dba1;
+    border-bottom: 1px solid #b2dba1;
+    background-image: linear-gradient(to bottom, #dff0d8 0px, #c8e5bc 100%);
+    background-repeat: repeat-x;
+    color: #3c763d;
+    border-width: 1px;
+    font-size: 0.75em;
+    padding: 0 0.75em;
+    line-height: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1px;
+}
+
+.event.begin {
+    border-left: 1px solid #b2dba1;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.event.end {
+    border-right: 1px solid #b2dba1;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.event.all-day {
+    border-top: 1px solid #9acfea;
+    border-bottom: 1px solid #9acfea;
+    background-image: linear-gradient(to bottom, #d9edf7 0px, #b9def0 100%);
+    background-repeat: repeat-x;
+    color: #31708f;
+    border-width: 1px;
+}
+
+.event.all-day.begin {
+    border-left: 1px solid #9acfea;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.event.all-day.end {
+    border-right: 1px solid #9acfea;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.event.clear {
+    background: none;
+    border: 1px solid transparent;
+}
+
+.table-tight>thead>tr>th,
+.table-tight>tbody>tr>th,
+.table-tight>tfoot>tr>th,
+.table-tight>thead>tr>td,
+.table-tight>tbody>tr>td,
+.table-tight>tfoot>tr>td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.table-tight-vert>thead>tr>th,
+.table-tight-vert>tbody>tr>th,
+.table-tight-vert>tfoot>tr>th,
+.table-tight-vert>thead>tr>td,
+.table-tight-vert>tbody>tr>td,
+.table-tight-vert>tfoot>tr>td {
+    padding-top: 0;
+    padding-bottom: 0;
+}

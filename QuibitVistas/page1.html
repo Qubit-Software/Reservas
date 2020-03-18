@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="Style/styles.css">
+  <title>Qubit Software</title>
+
+</head>
+
+<body>
+  <!--Main content-->
+  <div class="container-fluid">
+    <!--Header-->
+    <div class="row">
+      <div class="col-2 my-auto " id="logoContainer">
+        <img id="logo" class="img-fluid logoImage  " src="assets/1.png" alt="">
+      </div>
+
+      <div id="headText" class="col-8  text-center ">
+        <img class="img-fluid arrow mb-4 mx-4" src="assets/left-arrow.png" alt="">
+        <h3 class="mainHead pt-3 mb-0 mx-4" style="display: inline-block;">Febrero <br>
+          <p id="year" style="display: block;">2020</p>
+        </h3>
+        <img class="img-fluid arrow mb-4 ml-4" src="assets/right-arrow.png" alt="">
+      </div>
+      <div class="col-2 ">
+        <div class="row text-center">
+          <div class="col-12" id="topRightIcons">
+            <img id="icon3" class="mx-2 my-3" src="assets/calendar.svg" alt="">
+            <img id="icon3" class="mx-2  my-3" src="assets/calendar.svg" alt="">
+            <img id="icon3" class="mx-2  my-3" src="assets/calendar.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Header-->
+    <!--aside - Content-->
+    <div class="row">
+      <div class="col-2 lateral borders">
+        <ul id="links">
+          <li class="elements">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3  my-3"
+                src="assets/calendar.svg" alt="">Calendario</span>
+          </li>
+          <li class="elements">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3  my-3"
+                src="assets/calendar.svg" alt="">Factura compra</span>
+          </li>
+          <li class="elements">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3  my-3"
+                src="assets/calendar.svg" alt="">Factura Venta</span>
+          </li>
+          <li class="elements">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3  my-3"
+                src="assets/calendar.svg" alt="">Inventario</span>
+          </li>
+          <li class="elements">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3 my-3" src="assets/calendar.svg"
+                alt="">Reportes</span>
+          </li>
+          <li class="elements">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3  my-3"
+                src="assets/calendar.svg" alt="">Historial</span>
+          </li>
+          <li id="configButton" class="elements fixed-bottom col-2">
+            <span id="textoOpciones" class="text-break"><img id="icon2" class="ml-2 mr-3  my-4"
+                src="assets/calendar.svg" alt="">Configuración</span>
+          </li>
+        </ul>
+      </div>
+      <!--Calendar -->
+      <div class="col-md-8 mb-5">
+        <div class="container theme-showcase">
+          <div id="holder" class="row"></div>
+        </div>
+        <script type="text/tmpl" id="tmpl">
+          {{ 
+          var date = date || new Date(),
+              month = date.getMonth(), 
+              year = date.getFullYear(), 
+              first = new Date(year, month, 1), 
+              last = new Date(year, month + 1, 0),
+              startingDay = first.getDay(), 
+              thedate = new Date(year, month, 1 - startingDay),
+              dayclass = lastmonthcss,
+              today = new Date(),
+              i, j; 
+          if (mode === 'week') {
+            thedate = new Date(date);
+            thedate.setDate(date.getDate() - date.getDay());
+            first = new Date(thedate);
+            last = new Date(thedate);
+            last.setDate(last.getDate()+6);
+          } else if (mode === 'day') {
+            thedate = new Date(date);
+            first = new Date(thedate);
+            last = new Date(thedate);
+            last.setDate(thedate.getDate() + 1);
+          }
+          
+          }}
+          <table class="calendar-table table table-condensed table-tight table-responsive">
+            <thead>
+              <tr>
+                <td id="ete" colspan="7" style="text-align: center">
+                  <table style="white-space: nowrap; width: 100%">
+                    <tr>
+                      <td style="text-align: left;">
+                        <span class="btn-group">
+                          <button class="js-cal-prev btn btn-default">&lt;</button>
+                          <button class="js-cal-next btn btn-default">&gt;</button>
+                        </span>
+                        <button class="js-cal-option btn btn-default {{: first.toDateInt() <= today.toDateInt() && today.toDateInt() <= last.toDateInt() ? 'active':'' }}" data-date="{{: today.toISOString()}}" data-mode="month">{{: todayname }}</button>
+                      </td>
+                      <td>
+                        <span class="btn-group btn-group-lg">
+                          {{ if (mode !== 'day') { }}
+                            {{ if (mode === 'month') { }}<button class="js-cal-option btn btn-link" data-mode="year">{{: months[month] }}</button>{{ } }}
+                            {{ if (mode ==='week') { }}
+                              <button class="btn btn-link disabled">{{: shortMonths[first.getMonth()] }} {{: first.getDate() }} - {{: shortMonths[last.getMonth()] }} {{: last.getDate() }}</button>
+                            {{ } }}
+                            <button class="js-cal-years btn btn-link">{{: year}}</button> 
+                          {{ } else { }}
+                            <button class="btn btn-link disabled">{{: date.toDateString() }}</button> 
+                          {{ } }}
+                        </span>
+                      </td>
+                      <td style="text-align: right">
+                        <span class="btn-group">
+                          <button class="js-cal-option btn btn-default {{: mode==='year'? 'active':'' }}" data-mode="year">Year</button>
+                          <button class="js-cal-option btn btn-default {{: mode==='month'? 'active':'' }}" data-mode="month">Month</button>
+                          <button class="js-cal-option btn btn-default {{: mode==='week'? 'active':'' }}" data-mode="week">Week</button>
+                          <button class="js-cal-option btn btn-default {{: mode==='day'? 'active':'' }}" data-mode="day">Day</button>
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                </td>
+              </tr>
+            </thead>
+            {{ if (mode ==='year') {
+              month = 0;
+            }}
+            <tbody>
+              {{ for (j = 0; j < 3; j++) { }}
+              <tr>
+                {{ for (i = 0; i < 4; i++) { }}
+                <td class="calendar-month month-{{:month}} js-cal-option" data-date="{{: new Date(year, month, 1).toISOString() }}" data-mode="month">
+                  {{: months[month] }}
+                  {{ month++;}}
+                </td>
+                {{ } }}
+              </tr>
+              {{ } }}
+            </tbody>
+            {{ } }}
+            {{ if (mode ==='month' || mode ==='week') { }}
+            <thead>
+              <tr class="c-weeks">
+                {{ for (i = 0; i < 7; i++) { }}
+                  <th class="c-name">
+                    {{: days[i] }}
+                  </th>
+                {{ } }}
+              </tr>
+            </thead>
+            <tbody>
+              {{ for (j = 0; j < 6 && (j < 1 || mode === 'month'); j++) { }}
+              <tr>
+                {{ for (i = 0; i < 7; i++) { }}
+                {{ if (thedate > last) { dayclass = nextmonthcss; } else if (thedate >= first) { dayclass = thismonthcss; } }}
+                <td class="calendar-day {{: dayclass }} {{: thedate.toDateCssClass() }} {{: date.toDateCssClass() === thedate.toDateCssClass() ? 'selected':'' }} {{: daycss[i] }} js-cal-option" data-date="{{: thedate.toISOString() }}">
+                  <div class="date">{{: thedate.getDate() }}</div>
+                  {{ thedate.setDate(thedate.getDate() + 1);}}
+                </td>
+                {{ } }}
+              </tr>
+              {{ } }}
+            </tbody>
+            {{ } }}
+            {{ if (mode ==='day') { }}
+            <tbody>
+              <tr>
+                <td colspan="7">
+                  <table class="table table-striped table-condensed table-tight-vert" >
+                    <thead>
+                      <tr>
+                        <th>&nbsp;</th>
+                        <th style="text-align: center; width: 100%">{{: days[date.getDay()] }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th class="timetitle" >All Day</th>
+                        <td class="{{: date.toDateCssClass() }}">  </td>
+                      </tr>
+                      <tr>
+                        <th class="timetitle" >Before 6 AM</th>
+                        <td class="time-0-0"> </td>
+                      </tr>
+                      {{for (i = 6; i < 22; i++) { }}
+                      <tr>
+                        <th class="timetitle" >{{: i <= 12 ? i : i - 12 }} {{: i < 12 ? "AM" : "PM"}}</th>
+                        <td class="time-{{: i}}-0"> </td>
+                      </tr>
+                      <tr>
+                        <th class="timetitle" >{{: i <= 12 ? i : i - 12 }}:30 {{: i < 12 ? "AM" : "PM"}}</th>
+                        <td class="time-{{: i}}-30"> </td>
+                      </tr>
+                      {{ } }}
+                      <tr>
+                        <th class="timetitle" >After 10 PM</th>
+                        <td class="time-22-0"> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            {{ } }}
+          </table>
+        </script>
+
+      </div>
+      <!--Right aside content-->
+      <div class="col-2 lateral borders">
+        <p class="mt-2 ml-4 mr-4" id="sectionName1">Citas</p>
+        <hr class="mx-4">
+        <ul id="links2" class="ml-4">
+          <li class="elements ml-2">
+            <span id="textoOpciones" class="text-break ml- mr-4  my-4">Configuración</span>
+          </li>
+          <li class="elements ml-2">
+            <span id="textoOpciones" class="text-break  mr-4  my-4">Configuración</span>
+          </li>
+          <li class="elements ml-2">
+            <span id="textoOpciones" class="text-break  mr-4  my-4">Configuración</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <!--Menu container-->
+  <div class="container fixed-bottom text-center bg-white " id="menuResponsive">
+    <div class="row">
+      <div class="col-4 my-2">
+
+        <!-- Default dropup button -->
+        <div class="btn-group dropup">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="assets/buy.svg" id="logoSubMenu" alt="">
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+            </a>
+            <a class="dropdown-item" href="#">
+              <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+            </a>
+            <a class="dropdown-item" href="#">
+              <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+            </a>
+            <a class="dropdown-item" href="#">
+              <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+            </a>
+            <a class="dropdown-item" href="#">
+              <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 my-2">
+        <img src="assets/NQ.png" id="logoSubMenu" alt="">
+      </div>
+      <div class="col-4 my-2">
+        
+         <!-- Default dropup button 2 -->
+  <div  class="  btn-group btn-block dropup ">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      <img src="assets/buy.svg" id="logoSubMenu" alt="">
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="#">
+        <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+      </a>
+      <a class="dropdown-item" href="#">
+        <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+      </a>
+      <a class="dropdown-item" href="#">
+        <p><span><img class="subMenuIcons text-break" src="assets/buy.svg" alt=""></span> factura venta</p>
+      </a>
+      
+    </div>
+  </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- termina contenedors-->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="logic.js"></script>
+</body>
+
+</html>
